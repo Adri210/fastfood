@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bindParam(':senha', $senha);
         $stmt->execute();
 
-        // Armazenar mensagem de sucesso na sessão
+        
         $_SESSION['sucesso'] = "Cadastro realizado com sucesso! Faça login para continuar.";
 
         // Redirecionar para a página de login

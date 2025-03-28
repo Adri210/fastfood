@@ -1,5 +1,4 @@
 <?php
-// Inclui o arquivo de conexão com o banco de dados
 include('conexao.php');
 ?>
 
@@ -37,10 +36,10 @@ include('conexao.php');
 
 <div id="produtos">
     <?php
-    // Exibir os produtos cadastrados
+    // class exibir os produtos cadastrados
     class Estoque {
         public function listarProdutos() {
-            global $pdo;  // Acessa a conexão PDO global
+            global $pdo;  
 
             // Consulta os produtos no banco de dados
             $sql = "SELECT * FROM produtos";
@@ -76,15 +75,13 @@ include('conexao.php');
     // Salvar o produto no banco de dados
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["acao"])) {
         if ($_POST["acao"] == "Salvar") {
-            // Verifica se o formulário foi enviado corretamente
             if (isset($_POST["nome"]) && isset($_POST["preco"]) && isset($_FILES["foto"]) && isset($_POST["categoria"]) && isset($_POST["descricao"])) {
                 $nome = $_POST["nome"];
                 $preco = floatval($_POST["preco"]);
                 $categoria = $_POST["categoria"];
                 $descricao = $_POST["descricao"];
                 $foto = "uploads/" . basename($_FILES["foto"]["name"]);
-                
-                // Move a imagem para a pasta de uploads
+            
                 move_uploaded_file($_FILES["foto"]["tmp_name"], $foto);
 
                 // Inserir produto no banco de dados
@@ -144,7 +141,7 @@ include('conexao.php');
     ?>
 </div>
 
-<!-- Modal de Edição -->
+
 <div id="modalEditar" class="modal">
     <div class="modal-content">
         <span class="close" onclick="fecharModalEditar()">&times;</span>

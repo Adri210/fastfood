@@ -1,8 +1,7 @@
 <?php
-$host = 'localhost'; // Host do MySQL
-$dbname = 'fastfood_db'; // Nome do banco de dados
-$user = 'root'; // Usuário do MySQL
-$pass = ''; // Senha do MySQL
+$host = 'localhost'; 
+$user = 'root'; 
+$pass = ''; 
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
